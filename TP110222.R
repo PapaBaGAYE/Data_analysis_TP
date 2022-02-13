@@ -8,14 +8,16 @@ pairs(data[, 1:4], pch = 19)
 matrice_correlation = cor(data)
 corrplot(matrice_correlation, is.corr = FALSE)
 
-data_scale = as.data.frame(scale(data)) # dataset normalisé
+data_scale = as.data.frame(scale(data)) # dataset normalisÃ©
 res.pca <- PCA(data_scale, graph = FALSE)
 print(res.pca)
 
-mean(data_scale$X100m) # moyenne centrée
+mean(data_scale$X100m) # moyenne centrÃ©e
 sd(data_scale$X100m) # ecart type reduit
 
 eig.val <- get_eigenvalue(res.pca)
 round(eig.val, 2)
 
 fviz_eig(res.pca, addlabels = TRUE, ylim=c(0, 50))
+
+
