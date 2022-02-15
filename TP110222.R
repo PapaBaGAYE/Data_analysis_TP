@@ -4,6 +4,7 @@
 library(FactoMineR)
 library(factoextra)
 library("corrplot")
+
 data = decathlon2[1:23, 1:10]
 data
 
@@ -33,4 +34,7 @@ corrplot(var$cos2, is.corr=TRUE)
 fviz_pca_var(res.pca, col.var = "black")
 
 fviz_pca_var(res.pca, col.var = "cos2", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
+
+fviz_contrib(res.pca, choice = "var", axes = c(1, 2)) # variables
+fviz_contrib(res.pca, choice = "ind", axes = c(1, 2)) # induvidus
 
