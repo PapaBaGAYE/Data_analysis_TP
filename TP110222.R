@@ -35,6 +35,8 @@ fviz_pca_var(res.pca, col.var = "black")
 
 fviz_pca_var(res.pca, col.var = "cos2", gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
 
-fviz_contrib(res.pca, choice = "var", axes = c(1, 2)) # variables
+fviz_contrib(res.pca, choice = "var", axes = 1) # variables dimensions 1
+fviz_contrib(res.pca, choice = "var", axes = 2) # variables dimensions 2
+fviz_contrib(res.pca, choice = "var", axes = c(1, 2)) # variables dimensions 1 et 2
 fviz_contrib(res.pca, choice = "ind", axes = c(1, 2)) # induvidus
 
