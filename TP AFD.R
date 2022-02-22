@@ -29,11 +29,24 @@ fviz_eig(res.afd, addlabels = TRUE, ylim = c(0, 60))
 var = get_famd_var(res.afd)
 var
 fviz_famd_var(res.afd, col.var = "cos2", , gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), repel = TRUE)
-fviz_contrib(res.afd)
-
+fviz_contrib(res.afd, col.var = "cos2", choice = "var", axes = 1)
+fviz_contrib(res.afd, col.var = "cos2", choice = "var", axes = c(1:4))
+fviz_contrib(res.afd, col.var = "cos2", choice = "var", axes = 2)
 # ind = get_famd_ind(res.afd)
 # ind
 # fviz_famd_ind(res.afd)
+
+corrplot(var$cos2, is.corr = TRUE)
+quanti.var = get_famd_var(res.afd,"quanti.var")
+quanti.var
+
+fviz_famd_var(res.afd,"quanti.var" , repel = "TRUE", col.var = "black")
+
+
+
+
+
+
 
 
 
