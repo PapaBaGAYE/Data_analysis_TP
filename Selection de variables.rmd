@@ -1,20 +1,39 @@
-#install.packages(c("randomForest", "MASS", "VSURF"))
+---
+title: "Selection de variables"
+author: "Papa Ba GAYE"
+date: "15/03/2022"
+output: html_document
+---
+
+
+```{r}
 library("MASS")
 library("randomForest")
 library("VSURF")
 
 data(swiss)
 head(swiss)
-summary(swiss)
+swiss
+```
 
+
+```{r}
+summary(swiss)
+```
+```{r}
 pairs(swiss, pch = 19)
 
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
 library("corrplot")
 cor_mat = cor(swiss)
 corrplot(cor_mat, is.corr=TRUE)
+```
 
-# -------------------------DIRECTION ASCENDANTE-----------------------------------
 
+```{r}
 LRT_dev = function(mod1, mod2){
   1 - pchisq(deviance(mod1) - deviance(mod2), df.residual(mod1) - df.residual(mod2))
 }
@@ -52,10 +71,14 @@ LRT_dev(model4, model3)
 
 model5 = lm(Fertility ~ 1, data = swiss)
 LRT_dev(model5, model4)
+```
 
-# --------------------------------------------------------
-
-model <- lm(Fertility ~., data = swiss)
+```{r}
+#model <- lm(Fertility ~., data = swiss)
+model <- lm(Fertility ~1, data = swiss)
 step.model <- stepAIC(model, direction = "both")
 
 summary(step.model)
+```
+
+
